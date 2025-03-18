@@ -59,7 +59,6 @@ export const login = async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) throw new Error("Invalid credentials!");
-
     const accessToken = generateToken(user, "access");
     const refreshToken = generateToken(user, "refresh");
 
@@ -83,7 +82,12 @@ export const login = async (req, res) => {
 // Logout Route
 export const logout = (req, res) => {
   try {
-    res.clearCookie("refreshToken");
+    // res.clearCookie("refreshToken");
+    res.cookie("refreshToken", "", {
+      maxAge: 0,
+      sameSite: "none",
+      secure: true,
+    });
     successResponse({ data: "Logged out successfully", res });
   } catch (err) {
     logger.error(err);
@@ -105,6 +109,8 @@ export const getUserDetails = async (req, res) => {
 // Generate new access token
 export const getNewAccessToken = async (req, res) => {
   try {
+    if (!req.user)
+      return errorResponse({ code: 404, err: "User not found", res });
     const newAccessToken = generateToken(req.user, "access");
     successResponse({ data: newAccessToken, res });
   } catch (err) {

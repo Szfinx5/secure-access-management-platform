@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+/* base styles */
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  color: #333;
+  --primary: #020202;
+  --error: #e7195a;
+}
+
+/* Navbar */
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 750px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+.navbar h1 {
+  color: var(--primary);
+}
+.navbar .links {
+  margin-left: auto;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+.navbar a:hover {
+  color: var(--primary);
+}
+.content {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.profile-image img {
+  width: 200px;
+}
+
+/* Register */
+.register,
+.login,
+.profile {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.register label,
+.login label {
+  text-align: left;
+  display: block;
+}
+.register h2,
+.login h2 {
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+.register input,
+.register select,
+.login input {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.register button,
+.login button {
+  background: var(--primary);
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+div .error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.register p,
+.login p {
+  margin-bottom: 1.2em;
+  line-height: 1.5;
+}
+
+.new-account {
+  margin-bottom: 1.2em;
+  margin-top: 2.2em;
+  line-height: 1.5;
+}
+
+.register-link {
+  color: var(--primary);
+}
+
+/* Homepage */
+.home-image img {
+  max-width: 750px;
+  margin-bottom: 25px;
+}
+
+.home h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.home {
+  line-height: 2rem;
+  margin: 30px;
+  text-align: center;
+}
+
+.not-found {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.not-found h2 {
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+
+.not-found p {
+  margin-bottom: 30px;
+}
+
+.profile h2 {
+  font-size: 20px;
+  color: var(--primary);
+  margin: 30px 0px;
+}
+
+.profile button {
+  background: var(--primary);
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.profile p {
+  word-break: break-all;
+  white-space: normal;
+}
+
+/* Admin page */
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}

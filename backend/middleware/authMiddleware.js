@@ -26,15 +26,20 @@ export const verifyAccessToken = async (req, res, next) => {
 export const verifyRefreshToken = async (req, res, next) => {
   try {
     const refreshToken = req.cookies.refreshToken;
-    console.log(refreshToken);
-    if (!refreshToken) throw new Error("No refresh token provided");
+    if (!refreshToken) {
+      req.user = null;
+      return next();
+    }
 
     const decodedToken = jwt.verify(refreshToken, REFRESH_SECRET);
-    if (!decodedToken) throw new Error("Invalid refresh token");
-    console.log("decodedToken: ", decodedToken);
+    if (!decodedToken) {
+      req.user = null;
+      return next();
+    }
+
     req.user = await User.findById(decodedToken.userId).select("-password");
-    console.log(req.user);
-    logger.info("User authenticated: ", req.user.email);
+
+    logger.info("User authenticated: ", req.id);
     next();
   } catch (err) {
     logger.error(err);

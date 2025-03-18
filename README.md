@@ -1,1 +1,0 @@
-# secure-access-management-platform
