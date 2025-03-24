@@ -15,7 +15,7 @@ const Navbar = ({ from }) => {
   /* TODO: When the user refresh the page on the homepage, 
     the Redux state is wiped and the Navbar will treat it as a guest */
   let { user } = useSelector((state) => state.auth);
-  if ((from === "profile" || from === "admin") && !user) {
+  if ((from === "profile" || from === "admin" || from === "home") && !user) {
     dispatch(setUser({ user: userFromToken, accessToken }));
   }
 

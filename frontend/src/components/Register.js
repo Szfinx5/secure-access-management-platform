@@ -4,6 +4,7 @@ import cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { setUser } from "../store/authSlice.js";
+import { formatPhoneNumber } from "@/utils/helpers.js";
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -54,10 +55,15 @@ const Register = () => {
       setIsLoading(true);
 
       try {
-        /* Making sure the email/username is case insensitive */
+        /*  Making sure the email/username is case insensitive 
+            and phone number is formatted */
+
+        const formattedPhone = formatPhoneNumber(phone);
+
         const payload = {
           ...formData,
           email: formData.email.toLowerCase().trim(),
+          phone: formattedPhone,
         };
 
         const response = await axios.post(
